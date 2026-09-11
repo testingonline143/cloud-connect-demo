@@ -190,3 +190,21 @@
     font-family: "Manrope", sans-serif;
   }
 }
+
+@utility hero-mesh {
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 78% 15%,
+      color-mix(in oklab, var(--signal) 20%, transparent),
+      transparent 65%
+    ),
+    linear-gradient(145deg, var(--hero), color-mix(in oklab, var(--hero) 88%, black));
+}
+
+@utility grid-lines {
+  background-image:
+    linear-gradient(var(--hero-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(#000, #0000 80%);
+}
