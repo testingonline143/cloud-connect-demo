@@ -15,6 +15,12 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as LearnRouteImport } from './routes/learn'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ServicesAiTransformationAutomationRouteImport } from './routes/services.ai-transformation-automation'
+import { Route as ServicesCloudInfrastructureModernizationRouteImport } from './routes/services.cloud-infrastructure-modernization'
+import { Route as ServicesCybersecurityBusinessResilienceRouteImport } from './routes/services.cybersecurity-business-resilience'
+import { Route as ServicesItStrategyDigitalTransformationRouteImport } from './routes/services.it-strategy-digital-transformation'
+import { Route as ServicesManagedItOperationsRouteImport } from './routes/services.managed-it-operations'
+import { Route as ServicesTechnologyTalentProfessionalServicesRouteImport } from './routes/services.technology-talent-professional-services'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +52,42 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesAiTransformationAutomationRoute =
+  ServicesAiTransformationAutomationRouteImport.update({
+    id: '/ai-transformation-automation',
+    path: '/ai-transformation-automation',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCloudInfrastructureModernizationRoute =
+  ServicesCloudInfrastructureModernizationRouteImport.update({
+    id: '/cloud-infrastructure-modernization',
+    path: '/cloud-infrastructure-modernization',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCybersecurityBusinessResilienceRoute =
+  ServicesCybersecurityBusinessResilienceRouteImport.update({
+    id: '/cybersecurity-business-resilience',
+    path: '/cybersecurity-business-resilience',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesItStrategyDigitalTransformationRoute =
+  ServicesItStrategyDigitalTransformationRouteImport.update({
+    id: '/it-strategy-digital-transformation',
+    path: '/it-strategy-digital-transformation',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesManagedItOperationsRoute =
+  ServicesManagedItOperationsRouteImport.update({
+    id: '/managed-it-operations',
+    path: '/managed-it-operations',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesTechnologyTalentProfessionalServicesRoute =
+  ServicesTechnologyTalentProfessionalServicesRouteImport.update({
+    id: '/technology-talent-professional-services',
+    path: '/technology-talent-professional-services',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,7 +95,13 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/learn': typeof LearnRoute
   '/resources': typeof ResourcesRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/ai-transformation-automation': typeof ServicesAiTransformationAutomationRoute
+  '/services/cloud-infrastructure-modernization': typeof ServicesCloudInfrastructureModernizationRoute
+  '/services/cybersecurity-business-resilience': typeof ServicesCybersecurityBusinessResilienceRoute
+  '/services/it-strategy-digital-transformation': typeof ServicesItStrategyDigitalTransformationRoute
+  '/services/managed-it-operations': typeof ServicesManagedItOperationsRoute
+  '/services/technology-talent-professional-services': typeof ServicesTechnologyTalentProfessionalServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +109,13 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/learn': typeof LearnRoute
   '/resources': typeof ResourcesRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/ai-transformation-automation': typeof ServicesAiTransformationAutomationRoute
+  '/services/cloud-infrastructure-modernization': typeof ServicesCloudInfrastructureModernizationRoute
+  '/services/cybersecurity-business-resilience': typeof ServicesCybersecurityBusinessResilienceRoute
+  '/services/it-strategy-digital-transformation': typeof ServicesItStrategyDigitalTransformationRoute
+  '/services/managed-it-operations': typeof ServicesManagedItOperationsRoute
+  '/services/technology-talent-professional-services': typeof ServicesTechnologyTalentProfessionalServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,13 +124,43 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/learn': typeof LearnRoute
   '/resources': typeof ResourcesRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/ai-transformation-automation': typeof ServicesAiTransformationAutomationRoute
+  '/services/cloud-infrastructure-modernization': typeof ServicesCloudInfrastructureModernizationRoute
+  '/services/cybersecurity-business-resilience': typeof ServicesCybersecurityBusinessResilienceRoute
+  '/services/it-strategy-digital-transformation': typeof ServicesItStrategyDigitalTransformationRoute
+  '/services/managed-it-operations': typeof ServicesManagedItOperationsRoute
+  '/services/technology-talent-professional-services': typeof ServicesTechnologyTalentProfessionalServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/learn' | '/resources' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/learn'
+    | '/resources'
+    | '/services'
+    | '/services/ai-transformation-automation'
+    | '/services/cloud-infrastructure-modernization'
+    | '/services/cybersecurity-business-resilience'
+    | '/services/it-strategy-digital-transformation'
+    | '/services/managed-it-operations'
+    | '/services/technology-talent-professional-services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/learn' | '/resources' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/learn'
+    | '/resources'
+    | '/services'
+    | '/services/ai-transformation-automation'
+    | '/services/cloud-infrastructure-modernization'
+    | '/services/cybersecurity-business-resilience'
+    | '/services/it-strategy-digital-transformation'
+    | '/services/managed-it-operations'
+    | '/services/technology-talent-professional-services'
   id:
     | '__root__'
     | '/'
@@ -85,6 +169,12 @@ export interface FileRouteTypes {
     | '/learn'
     | '/resources'
     | '/services'
+    | '/services/ai-transformation-automation'
+    | '/services/cloud-infrastructure-modernization'
+    | '/services/cybersecurity-business-resilience'
+    | '/services/it-strategy-digital-transformation'
+    | '/services/managed-it-operations'
+    | '/services/technology-talent-professional-services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,7 +183,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   LearnRoute: typeof LearnRoute
   ResourcesRoute: typeof ResourcesRoute
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -140,8 +230,77 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/ai-transformation-automation': {
+      id: '/services/ai-transformation-automation'
+      path: '/ai-transformation-automation'
+      fullPath: '/services/ai-transformation-automation'
+      preLoaderRoute: typeof ServicesAiTransformationAutomationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/cloud-infrastructure-modernization': {
+      id: '/services/cloud-infrastructure-modernization'
+      path: '/cloud-infrastructure-modernization'
+      fullPath: '/services/cloud-infrastructure-modernization'
+      preLoaderRoute: typeof ServicesCloudInfrastructureModernizationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/cybersecurity-business-resilience': {
+      id: '/services/cybersecurity-business-resilience'
+      path: '/cybersecurity-business-resilience'
+      fullPath: '/services/cybersecurity-business-resilience'
+      preLoaderRoute: typeof ServicesCybersecurityBusinessResilienceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/it-strategy-digital-transformation': {
+      id: '/services/it-strategy-digital-transformation'
+      path: '/it-strategy-digital-transformation'
+      fullPath: '/services/it-strategy-digital-transformation'
+      preLoaderRoute: typeof ServicesItStrategyDigitalTransformationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/managed-it-operations': {
+      id: '/services/managed-it-operations'
+      path: '/managed-it-operations'
+      fullPath: '/services/managed-it-operations'
+      preLoaderRoute: typeof ServicesManagedItOperationsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/technology-talent-professional-services': {
+      id: '/services/technology-talent-professional-services'
+      path: '/technology-talent-professional-services'
+      fullPath: '/services/technology-talent-professional-services'
+      preLoaderRoute: typeof ServicesTechnologyTalentProfessionalServicesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
+
+interface ServicesRouteChildren {
+  ServicesAiTransformationAutomationRoute: typeof ServicesAiTransformationAutomationRoute
+  ServicesCloudInfrastructureModernizationRoute: typeof ServicesCloudInfrastructureModernizationRoute
+  ServicesCybersecurityBusinessResilienceRoute: typeof ServicesCybersecurityBusinessResilienceRoute
+  ServicesItStrategyDigitalTransformationRoute: typeof ServicesItStrategyDigitalTransformationRoute
+  ServicesManagedItOperationsRoute: typeof ServicesManagedItOperationsRoute
+  ServicesTechnologyTalentProfessionalServicesRoute: typeof ServicesTechnologyTalentProfessionalServicesRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAiTransformationAutomationRoute:
+    ServicesAiTransformationAutomationRoute,
+  ServicesCloudInfrastructureModernizationRoute:
+    ServicesCloudInfrastructureModernizationRoute,
+  ServicesCybersecurityBusinessResilienceRoute:
+    ServicesCybersecurityBusinessResilienceRoute,
+  ServicesItStrategyDigitalTransformationRoute:
+    ServicesItStrategyDigitalTransformationRoute,
+  ServicesManagedItOperationsRoute: ServicesManagedItOperationsRoute,
+  ServicesTechnologyTalentProfessionalServicesRoute:
+    ServicesTechnologyTalentProfessionalServicesRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -149,7 +308,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   LearnRoute: LearnRoute,
   ResourcesRoute: ResourcesRoute,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
