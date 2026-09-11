@@ -1,0 +1,7 @@
+import { Link } from "@tanstack/react-router";
+
+export function SiteFooter() {
+  return (
+    <footer className="bg-hero text-hero-foreground"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] lg:px-8"><div><Link aria-label="Aidant IT home" className="flex items-center gap-2.5" to="/"><span className="grid size-8 place-items-center rounded-md bg-primary text-sm font-extrabold text-primary-foreground">A</span><span className="text-sm font-extrabold tracking-normal">AIDANT <span className="text-primary">IT</span></span></Link><p className="mt-5 max-w-sm text-sm leading-7 text-hero-muted">Practical advisory and delivery across cloud, cybersecurity, AI, and modern operations.</p></div><div><p className="text-xs font-bold uppercase text-signal">Navigate</p><div className="mt-4 grid gap-3 text-sm text-hero-muted"><Link to="/services">Services</Link><Link to="/resources">Resources</Link><Link to="/learn">Learn</Link><Link to="/about">About us</Link></div></div><div><p className="text-xs font-bold uppercase text-signal">Work with us</p><div className="mt-4 grid gap-3 text-sm text-hero-muted"><Link to="/contact">Request an assessment</Link><Link to="/contact">Book a strategy call</Link><span>India · US · UK · UAE · Australia</span></div></div></div><div className="border-t border-hero-border"><div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 px-5 py-6 text-xs text-hero-muted lg:px-8"><span>© 2026 Aidant IT Consulting Services</span><span>Advisory-led. Delivery-focused.</span></div></div></footer>
+  );
+}
